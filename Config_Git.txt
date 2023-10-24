@@ -1,0 +1,29 @@
+Existem várias razões pelas quais você pode estar tendo problemas ao tentar copiar arquivos para um repositório remoto no GitHub. Aqui estão algumas soluções possíveis:
+
+1. **Verifique suas credenciais**: Certifique-se de que seu nome de usuário e e-mail estão corretamente configurados no Git. Você pode fazer isso com os seguintes comandos⁴:
+    ```
+    git config --global user.name "seu_nome_de_usuario"
+    git config --global user.email "seu@email.com"
+    ```
+2. **Verifique a URL do repositório**: Certifique-se de que a URL do repositório está correta. Você pode verificar a URL do repositório local abrindo a linha de comando e digitando `git remote -v`².
+
+3. **Verifique suas permissões**: Certifique-se de que você tem acesso ao repositório. Se você estiver recebendo uma mensagem de erro "Permission denied" (permissão negada), isso indica que o servidor rejeitou sua conexão¹.
+
+4. **Atualize seu Git**: Se você estiver usando uma versão antiga do Git, pode enfrentar problemas ao interagir com o GitHub².
+
+5. **Use SSH em vez de HTTPS**: Se você configurou as chaves SSH previamente, é possível usar a URL clone SSH em vez de HTTPS².
+
+Espero que isso ajude! Se você ainda estiver enfrentando problemas, por favor, forneça mais detalhes sobre o erro que está recebendo.
+
+Origem: conversa com o Bing, 23/10/2023
+(1) Erro de autenticação ao enviar arquivo para repositório no Github. https://pt.stackoverflow.com/questions/318026/erro-de-autentica%c3%a7%c3%a3o-ao-enviar-arquivo-para-reposit%c3%b3rio-no-github.
+(2) Solucionar problemas de erros de clonagem - GitHub Docs. https://docs.github.com/pt/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors.
+(3) não consigo enviar arquivos para o repositorio no github. https://pt.stackoverflow.com/questions/421665/n%c3%a3o-consigo-enviar-arquivos-para-o-repositorio-no-github.
+(4) Erro de autenticação ao enviar arquivo para repositório no Github. https://bing.com/search?q=Como+resolver+o+erro+ao+copiar+arquivos+para+o+reposit%c3%b3rio+remoto+do+github.
+(5) git - Problema na hora de fazer push no GitHub - Stack Overflow em .... https://pt.stackoverflow.com/questions/388005/problema-na-hora-de-fazer-push-no-github.
+(6) Clonar seu próprio projeto do GitHub em uma máquina diferente. https://pt.stackoverflow.com/questions/485018/clonar-seu-pr%c3%b3prio-projeto-do-github-em-uma-m%c3%a1quina-diferente.
+(7) undefined. https://github.com/Di82Rquant/repositorio-teste.
+(8) undefined. https://github.com/USER/REPO.git/info/refs?service=git-receive-pack.
+(9) undefined. https://github.com/USER/REPO.git/info/refs.
+(10) undefined. https://github.com/ghost/reactivecocoa.git.
+(11) undefined. https://github.com/ghost/ReactiveCocoa.git.
