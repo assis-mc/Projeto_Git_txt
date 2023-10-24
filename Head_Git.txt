@@ -1,3 +1,52 @@
 No git, a HEAD é um ponteiro, que nos aponta em que ponto da história estamos, em qual commit nós estamos, e nas próximas aulas veremos como fazer para irmos em outros pontos na história, outros commits.
 
 (Não é necessário entender as minúcias de como o git funciona, precisamos entender como funciona, não todos os detalhes exatos de todo o funcionamento do git. Nosso foco tem de ser em como fazê-lo uma ferramenta da qual possamos usar no nosso dia-a-dia, certo?)
+
+O que é o HEAD do Git?
+Primeiramente, temos que entender o que é um repositório do Git. E para isso, este artigo é bem esclarecedor, pois explica que no fundo um repositório do Git é um DAG (Directed Acyclic Graph - Grafo Acíclico Dirigido). Não vou entrar nos detalhes da definição matemática (que pode ser vista aqui), mas basicamente podemos pensar em um repositório do Git como um conjunto de nós apontando uns para os outros.
+
+Alguns desses nós são os commits, e eles apontam para outros nós. Alguns desses outros nós são outros commits (no caso, cada commit aponta para o(s) seu(s) "pai(s)" - sim, commits que são resultados de merges podem ter mais de um "pai"), outros nós são as árvores de diretórios (que por sua vez apontam para os arquivos e subdiretórios, etc). Se quiser se aprofundar nos detalhes internos desta estrutura, leia "Como o Git grava os conjuntos de modificações do repositório?":
+
+repositório Git
+
+Todos os nós são identificados por seu hash (aqueles "códigos gigantes" como por exemplo 618ce9936d015012ae55b95ac6afcc286d02682d). Porém, alguns commits podem ter um "nome"/label associado: são os branches. Sim, no fundo, um branch é simplesmente um nome associado a um commit específico (ou, como é mais comumente definido, um ponteiro para um commit).
+
+Por exemplo, no diagrama abaixo, o branch master aponta para o "segundo commit", o branch new_branch aponta para o "terceiro commit", e o "primeiro commit" não tem nenhum branch apontando para ele.
+
++-----------------+     +----------------+
+| primeiro commit | <-- | segundo commit |  <-- master
++-----------------+     +----------------+
+                                 ↑
+                        +-----------------+
+                        | terceiro commit | <-- new_branch
+                        +-----------------+
+O HEAD, no caso, é simplesmente um ponteiro para um commit específico (que pode ou não estar sendo apontado por um branch). É claro que, para simplificar, costuma-se dizer que o HEAD aponta para o "branch atual", mas na verdade ele pode apontar para qualquer commit, inclusive algum que não esteja sendo referenciado por nenhum branch (mais detalhes abaixo, na seção "HEAD não é exatamente o branch atual").
+
+De qualquer forma, é assim que o Git sabe onde adicionar o próximo commit. Por exemplo, se meu repositório estivesse como o diagrama acima, e eu criasse um novo commit, onde ele seria adicionado?
+
+Se o HEAD estivesse apontando para o branch master, ele seria adicionado depois do "segundo commit":
+
+Adicionar commit no branch master
++-----------------+     +----------------+     +---------------+
+| primeiro commit | <-- | segundo commit | <-- | quarto commit | <-- master (HEAD)
++-----------------+     +----------------+     +---------------+
+                                 ↑
+                        +-----------------+
+                        | terceiro commit | <-- new_branch
+                        +-----------------+
+Mas se o HEAD estivesse apontando para o branch new_branch, ele seria adicionado depois do "terceiro commit":
+
+Adicionar commit no branch new_branch
++-----------------+     +----------------+
+| primeiro commit | <-- | segundo commit |  <-- master
++-----------------+     +----------------+
+                                 ↑
+                        +-----------------+
+                        | terceiro commit |
+                        +-----------------+
+                                 ↑
+                        +-----------------+
+                        |  quarto commit  | <-- new_branch (HEAD)
+                        +-----------------+
+E para mudar o HEAD (ou seja, para mudar o branch para o qual ele aponta), usamos git checkout [branch]. Portanto, git checkout master (ou git switch master, para Git >= 2.23.0) faz o HEAD apontar para o branch master, enquanto git checkout new_branch (ou git switch new_branch, para Git >= 2.23.0) faz o HEAD apontar para o branch new_branch.
+
