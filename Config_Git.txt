@@ -2,8 +2,8 @@ Existem várias razões pelas quais você pode estar tendo problemas ao tentar c
 
 1. **Verifique suas credenciais**: Certifique-se de que seu nome de usuário e e-mail estão corretamente configurados no Git. Você pode fazer isso com os seguintes comandos⁴:
     ```
-    git config --global user.name "seu_nome_de_usuario"
-    git config --global user.email "seu@email.com"
+   1: git config --global user.name "seu_nome_de_usuario"
+   2: git config --global user.email "seu@email.com"
     ```
 2. **Verifique a URL do repositório**: Certifique-se de que a URL do repositório está correta. Você pode verificar a URL do repositório local abrindo a linha de comando e digitando `git remote -v`².
 
