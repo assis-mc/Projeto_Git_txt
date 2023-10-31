@@ -1,0 +1,18 @@
+Para adicionar chaves ao gerenciador local SSH Agent no Windows 11, você pode seguir os seguintes passos:
+
+1. Verifique se o ssh-agent está em execução ou então inicie o serviço com o comando⁴³:
+    ```
+    ssh-agent -s
+    ```
+2. Agora adicione a sua chave SSH privada ao ssh-agent com o comando⁴³:
+    ```
+    ssh-add ~/.ssh/id_rsa
+    ```
+
+Espero que isso ajude! Se você tiver mais perguntas, fique à vontade para perguntar.
+
+Origem: conversa com o Bing, 31/10/2023
+	(1) Adicionando chave SSH ao GitHub | Rafael Gerônimo. https://rafaelgeronimo.me/blog/github/ssh/tutorial/2021/01/11/adicionando-chave-ssh-github.html.
+	(2) Como obter e configurar suas chaves SSH do Git e do GitHub. https://www.freecodecamp.org/portuguese/news/como-obter-e-configurar-suas-chaves-ssh-do-git-e-do-github/.
+	(3) Gerando uma nova chave SSH e adicionando-a ao agente SSH. https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.
+	(4) Autenticação baseada em chave no OpenSSH para Windows. https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_keymanagement.

@@ -1,0 +1,34 @@
+Para criar chaves SSH para o GitHub no Windows 11, você pode seguir os seguintes passos:
+
+1. Abra o Terminal¹²³.
+2. Gere uma nova chave SSH no seu computador local. Você pode fazer isso com o seguinte comando⁴⁵:
+    ```
+    ssh-keygen -t ed25519 -C "your_email@example.com"
+    ```
+    Nota: Se você estiver usando um sistema que não suporta o algoritmo Ed25519, use⁴:
+    ```
+    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+    ```
+3. Quando for solicitado a inserir um arquivo para salvar a chave, pressione Enter para aceitar o local padrão do arquivo⁴.
+4. Adicione sua chave SSH ao ssh-agent⁵:
+    ```
+    eval "$(ssh-agent -s)" # para Mac e Linux
+    ssh-add ~/.ssh/id_rsa
+    ```
+5. Copie sua chave pública SSH para a área de transferência⁵:
+    ```
+    cat ~/.ssh/id_rsa.pub # Linux
+    ```
+6. Vá para a página de configurações do seu GitHub e clique em "SSH and GPG keys"⁴⁵.
+7. Clique em "New SSH key", dê um título à sua chave e cole sua chave pública (id_rsa.pub) no campo "Key" e clique em "Add SSH key"⁴⁵.
+
+Além disso, existem vários vídeos tutoriais disponíveis que podem ajudá-lo a configurar as chaves SSH para o GitHub¹²³.
+
+Espero que isso ajude! Se você tiver mais perguntas, fique à vontade para perguntar.
+
+Origem: conversa com o Bing, 31/10/2023
+(1) Gerando uma nova chave SSH e adicionando-a ao agente SSH. https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.
+(2) Como obter e configurar suas chaves SSH do Git e do GitHub. https://www.freecodecamp.org/portuguese/news/como-obter-e-configurar-suas-chaves-ssh-do-git-e-do-github/.
+(3) Como gerar chaves SSH no Windows 10 e Windows 11 - TopGadget. https://www.topgadget.com.br/howto/windows/como-gerar-chaves-ssh-no-windows-10-e-windows-11.htm.
+(4) Como gerar chaves SSH no Windows 10 e Windows 11. https://maisgeek.com/como-gerar-chaves-ssh-no-windows-10-e-windows-11/.
+(5) [PT-BR] Configurando Git e chave SSH na sua Máquina, do Zero - (Windows). https://dev.to/carinebatista/pt-br-configurando-o-git-e-chave-ssh-na-sua-maquina-do-zero-windows-3kib.
